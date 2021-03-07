@@ -1,20 +1,16 @@
 package com.app.polling.payloads;
 
-import javax.validation.constraints.NotBlank;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-public class LoginRequest {
+public class ApiResponse {
 
-	@NotBlank
-	private String userNameOrEmail;
-	
-	@NotBlank
-	private String password;
-	
+	private String message;
+	private boolean success;
 }
