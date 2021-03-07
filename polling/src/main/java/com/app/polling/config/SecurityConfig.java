@@ -1,5 +1,7 @@
 package com.app.polling.config;
 
+import javax.servlet.Filter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.app.polling.security.CustomUserDetailsService;
 import com.app.polling.security.JWTAuthenticationEntryPoint;
+import com.app.polling.security.JWTAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -90,6 +93,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .anyRequest()
                 .authenticated();
 
-         http.addFilterBefore(jwtauthenticationfilter(), UsernamePasswordAuthenticationFilter.class);
+         http.addFilterBefore((Filter) jwtauthenticationfilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 }
