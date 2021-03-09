@@ -32,7 +32,7 @@ import com.app.polling.security.JWTAuthenticationFilter;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	CustomUserDetailsService customeruserdetailsservice;
+	CustomUserDetailsService customerUserDetailsService;
 	
 	@Autowired
 	private JWTAuthenticationEntryPoint unauthorizedHandler;
@@ -51,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-		.userDetailsService(customeruserdetailsservice)
+		.userDetailsService(customerUserDetailsService)
 		.passwordEncoder(passwordEncoder());
 	}
 	
