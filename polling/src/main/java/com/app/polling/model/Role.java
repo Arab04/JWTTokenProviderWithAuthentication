@@ -21,7 +21,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Role {
 
 	@Id
@@ -33,5 +32,8 @@ public class Role {
 	@Column(length = 60)
 	private RoleName name;
 	
+	public Role(RoleName name) {
+		this.name = name;
+	}
 	
 }
