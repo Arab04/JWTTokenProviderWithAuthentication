@@ -42,17 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new JWTAuthenticationFilter();
 	}
 	
-	@Bean(BeanIds.AUTHENTICATION_MANAGER)
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 		.userDetailsService(customerUserDetailsService)
 		.passwordEncoder(passwordEncoder());
+	}
+	
+	@Bean(BeanIds.AUTHENTICATION_MANAGER)
+	@Override
+	public AuthenticationManager authenticationManagerBean() throws Exception {
+		return super.authenticationManagerBean();
 	}
 	
 	@Bean

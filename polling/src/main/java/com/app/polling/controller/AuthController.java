@@ -72,7 +72,7 @@ public class AuthController {
 			return new ResponseEntity(new ApiResponse("User with this user name already exist",false),HttpStatus.BAD_REQUEST);
 		}
 		
-		else if(userRepo.existsByEmail(signUp.getEmail())) {
+	    if(userRepo.existsByEmail(signUp.getEmail())) {
 			return new ResponseEntity(new ApiResponse("User with this email already exists", false),HttpStatus.BAD_REQUEST);
 		}
 		
